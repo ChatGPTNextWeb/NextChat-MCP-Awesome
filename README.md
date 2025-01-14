@@ -1,2 +1,2 @@
-# NextChat-MCP-Awesom
+# NextChat-MCP-Awesome
 NextChat mcp server collection
