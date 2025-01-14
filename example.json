@@ -1,0 +1,64 @@
+[
+    {
+      "id": "filesystem",
+      "name": "Filesystem",
+      "description": "Secure file operations with configurable access controls",
+      "tags":["filesystem","access-control"],
+      "repo":"https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "command": "npx",
+      "baseArgs": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "configurable": true,
+      "configSchema": {
+        "properties": {
+          "paths": {
+            "type": "array",
+            "description": "Allowed file system paths",
+            "required": true,
+            "minItems": 1
+          }
+        }
+      },
+      "argsMapping": {
+        "paths": {
+          "type": "spread",
+          "position": 2
+        }
+      }
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "Repository management, file operations, and GitHub API integration",
+      "tags": ["github","repository","api"],
+      "repo": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+      "command": "npx",
+      "baseArgs": ["-y", "@modelcontextprotocol/server-github"],
+      "configurable": true,
+      "configSchema": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "GitHub Personal Access Token",
+            "required": true
+          }
+        }
+      },
+      "argsMapping": {
+        "token": {
+          "type": "env",
+          "key": "GITHUB_PERSONAL_ACCESS_TOKEN"
+        }
+      }
+    },
+    {
+      "id": "gdrive",
+      "name": "Google Drive",
+      "tags": ["google","filesystem","api"],
+      "description": "File access and search capabilities for Google Drive",
+      "repo": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+      "command": "npx",
+      "baseArgs": ["-y", "@modelcontextprotocol/server-gdrive"],
+      "configurable": false
+    }
+  ]
+  
